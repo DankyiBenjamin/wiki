@@ -22,7 +22,7 @@ def entry_pages(request, title):
         })
     else:
         return render(request, "encyclopedia/error.html", {
-            "message": "The requested page was not found.",
+            "message": f"{title} not found",
             "title": title
         })
     
