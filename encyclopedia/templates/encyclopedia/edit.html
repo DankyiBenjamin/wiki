@@ -5,7 +5,7 @@
     Edit Page
 {% endblock %}
 
-{% block body %}
+{% block content %}
     <h1>Edit Page</h1>
     <form action="{% url 'edit_page' title=title %}" method="post">
         {% csrf_token %}

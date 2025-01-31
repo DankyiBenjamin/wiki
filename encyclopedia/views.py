@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from . import util
 import markdown2
+import random
 
 
 def index(request):
@@ -75,4 +76,11 @@ def edit(request, title):
         })
     
 
-# work on random pages and styling tomorrow
+#  random page view
+def random_page(request):
+    entries = util.list_entries()
+    title = random.choice(entries)
+    return entry_pages(request , title)
+
+# work on why the css is not working
+# then finish the styling of the website

@@ -4,14 +4,14 @@
     Create New Page
 {% endblock %}
 
-{% block body %}
-    <h1>Create New Page</h1>\
+{% block content %}
+    <div class="container">
+        <h1 class="mb-4 text-success">📝 Create New Page</h1>
 
-    <!-- Markdown Guide -->
         <!-- Markdown Guide -->
-        <div style="margin-bottom: 20px;">
-            <h3>Markdown Formatting Guide:</h3>
-            <ul>
+        <div class="alert alert-info">
+            <h5 class="fw-bold">Markdown Formatting Guide:</h5>
+            <ul class="mb-2">
                 <li><code># Heading</code>: Creates a large heading</li>
                 <li><code>## Subheading</code>: Creates a smaller heading</li>
                 <li><code>**Bold text**</code>: Makes text bold</li>
@@ -19,23 +19,26 @@
                 <li><code>[Link](http://example.com)</code>: Creates a hyperlink</li>
                 <li><code>![Image](http://example.com/image.jpg)</code>: Embeds an image</li>
             </ul>
-            <p>For a full guide, check out the <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank">Markdown Cheat Sheet</a>.</p>
+            <p>For a full guide, check out the 
+                <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank" class="fw-bold text-decoration-none">Markdown Cheat Sheet</a>.
+            </p>
         </div>
-    
 
-    <form action="{% url 'new_page' %}" method="post">
-        {% csrf_token %}
-        <div>
-            <label for="title">Page Title:</label>
-            <input type="text" id="title" name="title" value="{{ title }}" required>
-        </div>
-        <div>
-            <label for="content">Content (Markdown):</label>
-            <textarea id="content" name="content" rows="10" required>{{ content }}</textarea>
-        </div>
-        <div>
-            <button type="submit">Save Page</button>
-        </div>
-    </form>
+        <!-- Form -->
+        <form action="{% url 'new_page' %}" method="post" class="bg-light p-4 rounded shadow">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="title" class="form-label fw-bold">Page Title:</label>
+                <input type="text" id="title" name="title" class="form-control" value="{{ title }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="content" class="form-label fw-bold">Content (Markdown):</label>
+                <textarea id="content" name="content" rows="10" class="form-control" required>{{ content }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">💾 Save Page</button>
+        </form>
+    </div>
 {% endblock %}
-

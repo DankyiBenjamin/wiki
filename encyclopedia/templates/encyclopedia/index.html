@@ -4,15 +4,20 @@
     Encyclopedia
 {% endblock %}
 
-{% block body %}
-    <h1>All Pages</h1>
+{% block content %}
+    <div class="container">
+        <!-- adding margin bottom for better spacing -->
+        <h1 class="mb-4 text-primary">📚 Encyclopedia Entries</h1>
 
-    <ul>
-        {% for entry in entries %}
-        
-        <li><a href="{% url 'entry_page' entry %}">{{ entry }}</a></li> 
-        
-        {% endfor %}
-    </ul>
-
+        <ul class="list-group">
+            {% for entry in entries %}
+                <li class="list-group-item">
+                    <!-- using fw-bold to bold the text for better viewing -->
+                    <a href="{% url 'entry_page' entry %}" class="text-decoration-none fw-bold">
+                        {{ entry }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
