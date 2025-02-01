@@ -8,7 +8,7 @@
     <div class="container">
         <h1 class="mb-4 text-success">📝 Create New Page</h1>
 
-        <!-- Markdown Guide -->
+        <!-- Markdown Guide for beginners -->
         <div class="alert alert-info">
             <h5 class="fw-bold">Markdown Formatting Guide:</h5>
             <ul class="mb-2">
@@ -24,7 +24,7 @@
             </p>
         </div>
 
-        <!-- Form -->
+        <!-- Form for adding new markdown -->
         <form action="{% url 'new_page' %}" method="post" class="bg-light p-4 rounded shadow">
             {% csrf_token %}
 
